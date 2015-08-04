@@ -166,4 +166,21 @@ class ProductController extends BaseController
             'listProduct' => $productInfor['infor'],
             'link' => $productInfor['link']]);
     }
+
+    public function sortPrice()
+    {
+        $productInfor = array();
+        if($_GET['order'] == 'asc') {
+            $href = 'index.php?controller=ProductController&action=sortPrice&order=asc&page=';
+            $productInfor = $this->sortLimit($this->model,$this->table,'price','asc',$href);
+
+        }
+        if($_GET['order'] == 'desc') {
+            $href = 'index.php?controller=ProductController&action=sortPrice&order=desc&page=';
+            $productInfor = $this->sortLimit($this->model,$this->table,'price','desc',$href);
+        }
+        $this->view(['name' => 'list-products',
+            'listProduct' => $productInfor['infor'],
+            'link' => $productInfor['link']]);
+    }
 }

@@ -107,4 +107,14 @@ include_once 'menu.php';
 </div>
 
 </body>
+<script>
+    var input = document.getElementsByTagName('input');
+    var selectAll = input[4];
+    selectAll.onclick = function(){
+        var state = (selectAll.checked) ? true : false;
+        for (var i = 2; i < input.length; i++) {
+            input[i].checked = state;
+        }
+    };
+</script>
 </html>
