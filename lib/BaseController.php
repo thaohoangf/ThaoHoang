@@ -31,7 +31,6 @@ class BaseController{
     public function add($data = array(),$infor = array())
     {
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
-//            var_dump($_POST);
             if (isset($_POST['create'])) {
                 $model = new $data['model'];
                 $infor['image'] = $data['pre'] . $infor['name'];
