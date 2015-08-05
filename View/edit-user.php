@@ -47,7 +47,7 @@ include "menu.php";
                             <div class="span3">Upload Avatar:</div>
                             <div class="span9">
                             <img src="upload/avatar_<?php echo $infor['name']; ?>.jpg" /><br/>
-                            <input type="file" name="avatar" size="19">
+                            <input type="file" name="picture" size="19">
                             </div>
                             <div class="clear"></div>
                         </div>

@@ -69,15 +69,15 @@ class BaseController{
     }
 
 
-    public function searchLimit($table,$model,$column, $href)
+    public function searchLimit($table,$model,$column, $href,$order,$condition)
     {
-        $condition = $_GET['search'];
+        $search = $_GET['search'];
         $currentPage = $_GET['page'];
         $record = new $model;
-        $totalRecord = $record->countSearch($table,$column,$condition);
+        $totalRecord = $record->countSearch($table,$column,$search);
         $pagination = new Pagination($totalRecord,PER_PAGE,$currentPage,$href);
         $offset = $pagination->getOffset();
-        $data['infor'] = $record->searchLimit($table,$column,$condition,$offset,PER_PAGE);
+        $data['infor'] = $record->searchLimit($table,$column,$search,$condition,$order,$offset,PER_PAGE);
         $data['link'] = $pagination->paginationPanel($href);
         return $data;
     }
@@ -87,15 +87,15 @@ class BaseController{
     {
         $model = new $data['model'];
         $id = $_GET['id'];
-
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if(isset($_POST['update'])) {
-                $_SESSION['username'] = $infor['name'];
-                if($_FILES['avatar']['name']) {
-                    if (file_exists('upload/avatar_' . $infor['name'] . '.jpg')) {
-                        unlink('upload/avatar_' . $infor['name'] . '.jpg');
-                    }move_uploaded_file($data['image_tmp'], 'upload/avatar_' . $infor['name'] . '.jpg');
-                }else rename('upload/'.$data['old_image'] . '.jpg','upload/avatar_'.$infor['name'] . '.jpg');
+                if($_FILES['picture']['name']) {
+                    if (file_exists('upload/' . $infor['image'] . '.jpg')) {
+                        unlink('upload/' . $infor['image'] . '.jpg');
+//                        unlink('upload/' . $infor['image'] . '.jpg');
+                    }
+                    move_uploaded_file($_FILES['picture']['tmp_name'], 'upload/' . $infor['image'] . '.jpg');
+                }else rename('upload/'.$data['old_image'] . '.jpg','upload/'.$infor['image'] . '.jpg');
 
                 $model->update($data['table'],$infor,$id);
             }
@@ -115,4 +115,5 @@ class BaseController{
         $data['link'] = $link;
         return $data;
     }
+
 }

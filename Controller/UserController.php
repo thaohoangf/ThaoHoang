@@ -9,9 +9,11 @@ class UserController extends BaseController
     {
         $href = 'index.php?controller=UserController&action=index&page=';
         $userInfor = $this->indexBase($this->table, $this->model, $href);
+        $thead = $this->getThead('asc','sort');
         $this->view(['name' => 'list-users',
             'listUser' => $userInfor['infor'],
-            'link' => $userInfor['link']]);
+            'link' => $userInfor['link'],
+            'thead' => $thead]);
     }
 
     public function viewAddUser()
@@ -23,18 +25,26 @@ class UserController extends BaseController
 
     public function addUser()
     {
-        $infor['name'] = $_POST['name'];
-        $infor['password'] = $_POST['password'];
-        $infor['email'] = $_POST['email'];
-        $infor['activate'] = $_POST['activate'];
-        $infor['image'] = $_POST['name'];
-        $data['image_tmp'] = $_FILES['avatar']['tmp_name'];
-        $data['table'] = $this->table;
-        $data['model'] = $this->model;
-        $data['pre'] = 'avatar_';
-        $this->add($data, $infor);
-        header('Location: index.php?controller=UserController&action=index&page=1');
+//        var_dump($_REQUEST);
+        $validate = new Validation();
+        $error = $validate->checkValue($_REQUEST);
+        var_dump($error);
+        if (!$error) {
+            $infor['name'] = $_POST['name'];
+            $infor['password'] = $_POST['password'];
+            $infor['email'] = $_POST['email'];
+            $infor['activate'] = $_POST['activate'];
+            $infor['image'] = $_POST['name'];
+            $data['image_tmp'] = $_FILES['avatar']['tmp_name'];
+            $data['table'] = $this->table;
+            $data['model'] = $this->model;
+            $data['pre'] = 'avatar_';
+            header('Location: index.php?controller=UserController&action=index&page=1');
+        }
+//        extract($error);
+        
     }
+
 
     public function handle()
     {
@@ -56,9 +66,11 @@ class UserController extends BaseController
             $infor['time_update'] = date('y-m-d H:i:s');
             $infor['image'] = 'avatar_' . $_POST['name'];
             $data['old_image'] = $old['image'];
-            $data['image_tmp'] = $_FILES['avatar']['tmp_name'];
             $data['table'] = $this->table;
             $data['model'] = $this->model;
+            if($_SESSION['username'] == $old['name']) {
+                $_SESSION['username'] = $_POST['name'];
+            }
             $this->edit($infor, $data);
             header('Location:index.php?controller=UserController&action=index&page=1');
         }
@@ -69,13 +81,20 @@ class UserController extends BaseController
     public function searchUser()
     {
         $search = $_GET['search'];
-        $href = "index.php?controller=UserController&action=searchUser&search=$search&page=";
-        $userInfor = $this->searchLimit($this->table, $this->model, 'name', $href);
+        $order = $_GET['order'];
+        $href = "index.php?controller=UserController&action=searchUser&search=$search&order=$order&page=";
+        $condition = 'name';
+        $userInfor = $this->searchLimit($this->table,$this->model,'name',$href,$order,$condition);
+        if(isset($_GET['sort'])){
+            $condition = $_GET['sort'];
+            $userInfor = $this->searchLimit($this->table, $this->model,'name', $href,$order,$condition);
+        }
+        $thead = $this->getThead('asc','searchUser');
         $this->view(['name' => 'list-users',
             'listUser' => $userInfor['infor'],
-            'link' => $userInfor['link']]);
+            'link' => $userInfor['link'],
+            'thead' => $thead]);
     }
-
 
     public function sort()
     {
@@ -83,10 +102,43 @@ class UserController extends BaseController
         $condition = $_GET['sort'];
         $order = $_GET['order'];
         $href = "index.php?controller=UserController&action=sort&sort=$condition&order=$order&page=";
-        $userInfor = $this->sortLimit($this->model, $this->table, $condition, $order, $href);
+        $thead = $this->getThead($order,'sort');
+        $userInfor = $this->sortLimit($this->model,$this->table,$condition,$order,$href);
         $this->view(['name' => 'list-users',
             'listUser' => $userInfor['infor'],
-            'link' => $userInfor['link']]);
+            'link' => $userInfor['link'],
+            'thead' => $thead,
+        ]);
+    }
+
+    public function getThead($order,$action)
+    {
+        if(!isset($_GET['order']) || $_GET['order']=='desc'){
+            $order = 'asc';
+            $class = 'sorting_desc';
+        } else if($_GET['order']=='asc' ||$_GET['order']!=$order){
+            $order = 'desc';
+            $class = 'sorting_asc';
+        }
+        if(!isset($_GET['search'])){
+            $search = '';
+        }else $search = '&search='.$_GET['search'];
+        $thead ="<th width='15%' class='$class'>
+                                <a href='index.php?controller=UserController&action=$action&sort=id$search&order=$order&page=1'>ID</a>
+                            </th>
+                           <th width='30%' class='$class'>
+                                <a href='index.php?controller=UserController&action=$action&sort=name$search&order=$order&page=1'>Name</a>
+                            </th>
+                            <th width='25%' class='$class'>
+                                <a href='index.php?controller=UserController&action=$action&sort=activate$search&order=$order&page=1'>Activate</a>
+                            </th>
+                            <th width='15%' class='$class'>
+                                <a href='index.php?controller=UserController&action=$action&sort=time_create$search&order=$order&page=1'>Time Created</a>
+                            </th>
+                            <th width='15%' class='$class'>
+                                <a href='index.php?controller=UserController&action=$action&sort=time_update$search&order=$order&page=1'>Time Updated</a>
+                            </th>
+                            <th width='10%'>Action</th>";
+        return $thead;
     }
 }
-

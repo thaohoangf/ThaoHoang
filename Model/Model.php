@@ -45,10 +45,8 @@ class Model extends Database
     public function getBy($table,$select,$column,$condition)
     {
         $query = "SELECT $select FROM $table WHERE $column = '$condition'";
-//        echo $query;
         $result = $this->cont->query($query);
         return $result;
-//        var_dump($result);
     }
 
     //insert database
@@ -95,12 +93,6 @@ class Model extends Database
         return $this->fetchResult($result);
     }
 
-    public function search($table, $column,$search,$offset,$step){
-        $query = "SELECT * FROM $table WHERE $column LIKE '%$search%' LIMIT $offset,$step";
-        $result = $this->cont->query($query);
-        return $result;
-    }
-
     public function countSearch($table, $column, $condition)
     {
         $sql = "SELECT COUNT(*) as count FROM $table WHERE $column LIKE '%$condition%'";
@@ -109,9 +101,10 @@ class Model extends Database
         return $count['count'];
     }
 
-    public function searchLimit($table, $column,$search,$offset,$step){
-        $query = "SELECT * FROM $table WHERE $column LIKE '%$search%' LIMIT $offset,$step";
+    public function searchLimit($table, $column,$search,$condition,$order,$offset,$step){
+        $query = "SELECT * FROM $table WHERE $column LIKE '%$search%' ORDER BY $condition $order LIMIT $offset,$step ";
         $result = $this->cont->query($query);
         return $this->fetchResult($result);
     }
+
 }
