@@ -67,7 +67,7 @@ include "menu.php";
                             <div class="span3">Activate:</div>
                             <div class="span9">
                                 <select name="activate">
-                                    <option value="2">choose a option...</option>
+                                    <option  value="2">choose a option...</option>
                                     <option value="1" <?php if($infor['activate']==1) echo "selected";?>>Activate</option>
                                     <option value="0" <?php if($infor['activate']==0) echo "selected";?>>Deactivate</option>
                                 </select>

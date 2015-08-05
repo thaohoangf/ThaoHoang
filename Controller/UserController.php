@@ -37,6 +37,7 @@ class UserController extends BaseController
             $data['table'] = $this->table;
             $data['model'] = $this->model;
             $data['pre'] = 'avatar_';
+            $this->add($data,$infor);
             header('Location: index.php?controller=UserController&action=index&page=1');
         }
         $this->view(['name' => 'add-user',
@@ -47,7 +48,7 @@ class UserController extends BaseController
     public function handle()
     {
         if (isset($_POST['checkbox'])) {
-            $this->handleBase($this->table, $this->model);
+            $this->handleBase($this->table, $this->model,'id');
         }
         header('Location:index.php?controller=UserController&action=index&page=1');
     }

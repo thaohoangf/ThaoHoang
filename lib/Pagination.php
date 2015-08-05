@@ -76,7 +76,7 @@ class Pagination
             $nextNumHTML = "";
             $preNumHTML = '';
         }
-        $current = "<a class='paginate_active' href='{$href}{$this->currentPage}'>{$this->currentPage}</a>";
+
 
         if($this->totalPage == 0){
             $firstHTML = "<a class='first paginate_button paginate_button_disabled' href='#'>First</a>";
@@ -87,7 +87,22 @@ class Pagination
             $preNumHTML = '';
         }
 
+        if($this->totalPage == 2){
+            $firstHTML = "";
+            $preHTML = "";
+            $nextHTML = "";
+            $lastHTML = "";
+            if($this->currentPage == 1) {
+                $nextNumHTML = "<a class='paginate_button ' href='{$href}2'>2</a>";
+                $preNumHTML = "";
+            }
+            if($this->currentPage == 2) {
+                $nextNumHTML = "";
+                $preNumHTML = "<a class='paginate_button ' href='{$href}1'>1</a>";
+            }
+        }
 
+        $current = "<a class='paginate_active' href='{$href}{$this->currentPage}'>{$this->currentPage}</a>";
         $html = $firstHTML . $preHTML . $preNumHTML. $current . $nextNumHTML . $nextHTML . $lastHTML;
         return $html;
     }

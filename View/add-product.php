@@ -26,17 +26,29 @@
                     <form method="POST" action="index.php?controller=ProductController&action=addProduct" enctype="multipart/form-data">
                     	<div class="row-form">
                             <div class="span3">Product Name:</div>
-                            <div class="span9"><input type="text" placeholder="some text value..." name="name"/></div>
+                            <div class="span9"><input type="text" placeholder="some text value..." name="name"/>
+                            <?php
+                                if(isset($error['name'])) echo $error['name'];
+                            ?>
+                            </div>
                             <div class="clear"></div>
                         </div> 
                     	<div class="row-form">
                             <div class="span3">Price:</div>
-                            <div class="span9"><input type="text" placeholder="some text value..." name="price"/></div>
+                            <div class="span9"><input type="text" placeholder="some text value..." name="price"/>
+                            <?php
+                                if(isset($error['price'])) echo $error['price'];
+                            ?>
+                            </div>
                             <div class="clear"></div>
                         </div> 
                     	<div class="row-form">
                             <div class="span3">Description:</div>
-                            <div class="span9"><textarea name="description" placeholder="Textarea field placeholder..."></textarea></div>
+                            <div class="span9"><textarea name="description" placeholder="Textarea field placeholder..."></textarea>
+                            <?php
+                                if(isset($error['description'])) echo $error['description'];
+                            ?>
+                            </div>
                             <div class="clear"></div>
                         </div> 
                     	<div class="row-form">

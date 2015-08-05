@@ -11,18 +11,21 @@ class Validation
     public $error = array();
     public $rule = array('name' => array('required','min','max','name'),
                         'password' => array('required','min','max','password'),
-                        'email' => array('email'));
+                        'email' => array('email'),
+                        'price' => array('price'),);
 
-    public $checkValue = array('name','password','email');
+//    public $checkValue = array('name','password','email');
 
     public function checkValue()
     {
        foreach($this->rule as $key => $value){
-           foreach($value as $law) {
-               if ($this->$law($_REQUEST[$key],$key)){
-                   $notice = $this->$law($_REQUEST[$key],$key);
-                   $this -> error[$key] = $notice;
-                   break;
+               foreach($value as $law) {
+                   if(isset($_REQUEST[$key])){
+                   if ($this->$law($_REQUEST[$key], $key)) {
+                       $notice = $this->$law($_REQUEST[$key], $key);
+                       $this->error[$key] = $notice;
+                       break;
+                   }
                }
            }
        }
@@ -83,6 +86,15 @@ class Validation
         $message = '';
         if(!filter_var($value,FILTER_VALIDATE_EMAIL)){
             $message = 'Invalid form '.$key;
+        }
+        return $message;
+    }
+
+    public function price($value, $key)
+    {
+        $message = '';
+        if(!is_numeric($value)){
+            $message = 'Value of '. $key . 'must be number';
         }
         return $message;
     }

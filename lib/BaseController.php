@@ -31,6 +31,7 @@ class BaseController{
     public function add($data = array(),$infor = array())
     {
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            echo 'Thao';
             if (isset($_POST['create'])) {
                 $model = new $data['model'];
                 $infor['image'] = $data['pre'] . $infor['name'];
@@ -40,12 +41,18 @@ class BaseController{
         }
     }
 
-    public function handleBase($table,$model)
+    public function handleBase($table,$model,$column)
     {
         $model = new $model;
         $condition = $_POST['checkbox'];
         if (isset($_POST['delete'])) {
             foreach ($condition as $id) {
+                $image = $model->getBy($table,'image',$column,$id);
+                $image_name = $image->fetch_assoc();
+                if(file_exists('upload/'.$image_name['image'].'.jpg')){
+                    echo 'Thao';
+                    unlink('upload/'.$image_name['image'].'.jpg');
+                }
                 $model->delete($table,$id);
             }
         } else
