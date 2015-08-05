@@ -15,27 +15,17 @@ class Validation
 
     public $checkValue = array('name','password','email');
 
-    public function checkValue($data = array())
+    public function checkValue()
     {
-        foreach($data as $key => $value){
-            if(in_array($key,$this->checkValue)){
-                foreach($this->rule as $type => $law){
-                    if($key == $type){
-                       foreach($law as $rule){
-                           if($this->$rule($value,$key)){
-                               $notice = $this->$rule($value,$key);
-                               $this->error[] = ([$key => $notice]);
-                               break;
-//                           }else {
-//                               $this->error[] = ([$key => '']);
-//                               break;
-                           }
-                       }
-                   }
-                }
-            }
-        }
-//        var_dump($this->error);
+       foreach($this->rule as $key => $value){
+           foreach($value as $law) {
+               if ($this->$law($_REQUEST[$key],$key)){
+                   $notice = $this->$law($_REQUEST[$key],$key);
+                   $this -> error[$key] = $notice;
+                   break;
+               }
+           }
+       }
         return $this->error;
     }
 

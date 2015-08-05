@@ -25,10 +25,8 @@ class UserController extends BaseController
 
     public function addUser()
     {
-//        var_dump($_REQUEST);
         $validate = new Validation();
-        $error = $validate->checkValue($_REQUEST);
-        var_dump($error);
+        $error = $validate->checkValue();
         if (!$error) {
             $infor['name'] = $_POST['name'];
             $infor['password'] = $_POST['password'];
@@ -41,8 +39,8 @@ class UserController extends BaseController
             $data['pre'] = 'avatar_';
             header('Location: index.php?controller=UserController&action=index&page=1');
         }
-//        extract($error);
-        
+        $this->view(['name' => 'add-user',
+                    'error' => $error]);
     }
 
 
@@ -58,21 +56,30 @@ class UserController extends BaseController
     {
         $old = $this->viewEdit($this->table, $this->model, '*');
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $infor['name'] = $_POST['name'];
-            $infor['email'] = $_POST['email'];
-            $infor['password'] = $_POST['password'];
-            $infor['activate'] = $_POST['activate'];
-            date_default_timezone_set('Asia/BangKok');
-            $infor['time_update'] = date('y-m-d H:i:s');
-            $infor['image'] = 'avatar_' . $_POST['name'];
-            $data['old_image'] = $old['image'];
-            $data['table'] = $this->table;
-            $data['model'] = $this->model;
-            if($_SESSION['username'] == $old['name']) {
-                $_SESSION['username'] = $_POST['name'];
+            $validate = new Validation();
+            $error = $validate->checkValue();
+            if (!$error) {
+                $infor['name'] = $_POST['name'];
+                $infor['email'] = $_POST['email'];
+                $infor['password'] = $_POST['password'];
+                $infor['activate'] = $_POST['activate'];
+                date_default_timezone_set('Asia/BangKok');
+                $infor['time_update'] = date('y-m-d H:i:s');
+                $infor['image'] = 'avatar_' . $_POST['name'];
+                $data['old_image'] = $old['image'];
+                $data['table'] = $this->table;
+                $data['model'] = $this->model;
+                if ($_SESSION['username'] == $old['name']) {
+                    $_SESSION['username'] = $_POST['name'];
+                }
+                $this->edit($infor, $data);
+                header('Location:index.php?controller=UserController&action=index&page=1');
             }
-            $this->edit($infor, $data);
-            header('Location:index.php?controller=UserController&action=index&page=1');
+            else{
+                $this->view(['name' => 'edit-user',
+                            'infor' => $old,
+                            'error' => $error]);
+            }
         }
         $this->view(['name' => 'edit-user',
             'infor' => $old]);
