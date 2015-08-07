@@ -27,7 +27,7 @@ include "menu.php";
                     <div class="clear"></div>
                 </div>
                 <div class="block-fluid">
-                    <form method="POST" action="index.php?controller=UserController&action=editUser&id=<?php echo $_GET['id'];?> " enctype="multipart/form-data">
+                    <form method="POST" action="index.php?controller=UserController&action=editUser&id=<?php echo $_GET['id'];?>" enctype="multipart/form-data">
                     	<div class="row-form">
                             <div class="span3">Username:</div>
                             <div class="span9"><input type="text" name = "name" value="<?php echo $infor['name']; ?>"/>
@@ -40,25 +40,27 @@ include "menu.php";
                     	<div class="row-form">
                             <div class="span3">Email:</div>
                             <div class="span9"><input type="text" name = "email" value="<?php echo $infor['email']; ?>"/>
-                            <?
+                                <?php
                                 if(isset($error['email'])) echo $error['email'];
-                            ?>
+                                ?>
                             </div>
                             <div class="clear"></div>
                         </div>
                     	<div class="row-form">
                             <div class="span3">Password:</div>
                             <div class="span9"><input type="text" name = "password" value="<?php echo $infor['password']; ?>"/>
-                            <?
+                            <?php
+
                                 if(isset($error['password'])) echo $error['password'];
                             ?>
                             </div>
                             <div class="clear"></div>
                         </div>
+
                     	<div class="row-form">
                             <div class="span3">Upload Avatar:</div>
                             <div class="span9">
-                            <img src="upload/avatar_<?php echo $infor['name']; ?>.jpg" /><br/>
+                            <img src="upload/<?php echo $infor['image'] ?>.jpg" /><br/>
                             <input type="file" name="picture" size="19">
                             </div>
                             <div class="clear"></div>
@@ -92,4 +94,4 @@ include "menu.php";
 
 </body>
 </html>
-<?php
+        <?php //var_dump($error);

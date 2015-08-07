@@ -19,6 +19,15 @@ class Model extends Database
         return $list;
     }
 
+    public function countFilter($table,$column,$condition)
+    {
+        $sql = "SELECT COUNT(*) as count FROM $table WHERE $column = $condition";
+        $result = $this->cont->query($sql);
+        $count = $result->fetch_assoc();
+        return $count['count'];
+    }
+
+
     public function countAll($table)
     {
         $sql = "SELECT COUNT(*) as count FROM $table";
@@ -57,7 +66,6 @@ class Model extends Database
         $values = "'$values'";
         $sql = "INSERT INTO $table($column) VALUES ($values)";
         $result = $this->cont->query($sql);
-        var_dump($result);
     }
 
     //update database

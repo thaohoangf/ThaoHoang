@@ -31,14 +31,21 @@ class BaseController{
     public function add($data = array(),$infor = array())
     {
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
-            echo 'Thao';
             if (isset($_POST['create'])) {
                 $model = new $data['model'];
-                $infor['image'] = $data['pre'] . $infor['name'];
+                $total = $model->countAll($data['table']);
+                if($total % PER_PAGE == 0){
+                    $page = ceil($total/PER_PAGE) + 1;
+                }else $page = ceil($total/PER_PAGE);
+                if(isset($infor['image'])) {
+                    $infor['image'] = $data['pre'] . $infor['name'];
+                    move_uploaded_file($data['image_tmp'], 'upload/' . $infor['image'] . '.jpg');
+                }
                 $model->insert($data['table'], $infor);
-                move_uploaded_file($data['image_tmp'],'upload/'.$infor['image'] .'.jpg');
+
             }
         }
+        return $page;
     }
 
     public function handleBase($table,$model,$column)
@@ -61,9 +68,10 @@ class BaseController{
                     $model->activate($table,$id);
                 }
             }
+
     }
 
-    public function viewEdit($table,$model,$select)
+    public function getOldEdit($table,$model,$select)
     {
         $model = new $model($table);
         $oldInfor = '';
@@ -96,18 +104,19 @@ class BaseController{
         $id = $_GET['id'];
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if(isset($_POST['update'])) {
-                if($_FILES['picture']['name']) {
-                    if (file_exists('upload/' . $infor['image'] . '.jpg')) {
-                        unlink('upload/' . $infor['image'] . '.jpg');
-//                        unlink('upload/' . $infor['image'] . '.jpg');
-                    }
-                    move_uploaded_file($_FILES['picture']['tmp_name'], 'upload/' . $infor['image'] . '.jpg');
-                }else rename('upload/'.$data['old_image'] . '.jpg','upload/'.$infor['image'] . '.jpg');
-
+                if(isset($infor['image'])) {
+                    if ($_FILES['picture']['name']) {
+                        if (file_exists('upload/' . $infor['image'] . '.jpg')) {
+                            unlink('upload/' . $infor['image'] . '.jpg');
+                        }
+                        move_uploaded_file($_FILES['picture']['tmp_name'], 'upload/' . $infor['image'] . '.jpg');
+                    } else rename('upload/' . $data['old_image'] . '.jpg', 'upload/' . $infor['image'] . '.jpg');
+                }
                 $model->update($data['table'],$infor,$id);
             }
         }
     }
+
 
     public function sortLimit($model,$table,$condition,$order,$href)
     {
@@ -123,4 +132,17 @@ class BaseController{
         return $data;
     }
 
+//    public function sortFilterLimit($model, $table, $condition, $order, $href, $value)
+//    {
+//        $data = array();
+//        $model = new $model;
+//        $currentPage = $_GET['page'];
+//        $totalRecord = $model->countFilter($table);
+//        $pagination = new Pagination($totalRecord,PER_PAGE,$currentPage,$href);
+//        $link = $pagination->paginationPanel($href);
+//        $offset = $pagination->getOffset();
+//        $data['infor'] = $model->sortBy($table,$condition,$order,$offset,PER_PAGE);
+//        $data['link'] = $link;
+//        return $data;
+//    }
 }

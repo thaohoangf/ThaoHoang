@@ -17,6 +17,4 @@ class UserModel extends Model
         else
             return false;
     }
-
-
 }

@@ -1,5 +1,6 @@
 <?php
 require_once "Model/UserModel.php";
+//require_once "ProductController.php";
 class LoginController extends BaseController
 {
     private $table = 'users';
@@ -15,19 +16,13 @@ class LoginController extends BaseController
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if(isset($_POST['submit'])) {
-//                var_dump($_POST);
                 $username = $_POST['username'];
                 $password = $_POST['password'];
                 $usermodel = new $this->model;
-//                var_dump($usermodel->checkLogin($username, $password));
                 if ($usermodel->checkLogin($username, $password)) {
-//                    echo 'Thao';
                     $_SESSION['username'] = $username;
-//                    echo 'Thao';
-//                    echo $_SESSION['username'];
                     $result = $usermodel->getBy($this->table, 'id', 'name', $username);
                     $row = $result->fetch_assoc();
-//                    var_dump($row);
                     $_SESSION['id'] = $row['id'];
                     $this->home();
                 } else {
@@ -37,11 +32,11 @@ class LoginController extends BaseController
         }
     }
     public function home(){
-//        echo 'Thao';
-        header('Location: index.php?controller=HomeController&action=index');
+        header('Location: index.php?controller=UserController&action=index&page=1');
     }
+
     public function login()
     {
-        $this->view(['view' => 'login']);
+        header('Location: index.php');
     }
 }

@@ -32,8 +32,20 @@
                             ?>
                             </div>
                             <div class="clear"></div>
-                        </div> 
-                    	<div class="row-form">
+                        </div>
+                        <div class="row-form">
+                            <div class="span3">Category:</div>
+                            <div class="span9">
+                                <select name="category">
+                                    <option value="0">choose a option...</option>
+                                    <?php foreach($category as $data){ ?>
+                                    <option value="<?php echo $data['id']; ?>"><?php echo $data['name'] ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="row-form">
                             <div class="span3">Price:</div>
                             <div class="span9"><input type="text" placeholder="some text value..." name="price"/>
                             <?php

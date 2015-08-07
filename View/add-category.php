@@ -5,7 +5,7 @@
     <div class="breadLine">
 
         <ul class="breadcrumb">
-            <li><a href="list-categories.php">List Categories</a> <span class="divider">></span></li>
+            <li><a href="list-categories.php">List Categories</a> <span class="divider"></span></li>
             <li class="active">Add</li>
         </ul>
 
@@ -23,16 +23,16 @@
                     <div class="clear"></div>
                 </div>
                 <div class="block-fluid">
-                    <form>
+                    <form action="index.php?controller=CategoryController&action=addCategory" method="POST">
                     	<div class="row-form">
                             <div class="span3">Category Name:</div>
-                            <div class="span9"><input type="text" placeholder="some text value..."/></div>
+                            <div class="span9"><input type="text" placeholder="some text value..." name="name"/></div>
                             <div class="clear"></div>
                         </div> 
                         <div class="row-form">
                             <div class="span3">Activate:</div>
                             <div class="span9">
-                                <select name="select">
+                                <select name="activate">
                                     <option value="0">choose a option...</option>
                                     <option value="1">Activate</option>
                                     <option value="2">Deactivate</option>
@@ -41,7 +41,7 @@
                             <div class="clear"></div>
                         </div>                          
                         <div class="row-form">
-                        	<button class="btn btn-success" type="submit">Create</button>
+                        	<button class="btn btn-success" type="submit" name="create">Create</button>
 							<div class="clear"></div>
                         </div>
                     </form>

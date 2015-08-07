@@ -30,7 +30,8 @@ include_once 'menu.php';
                     <form method="POST" action="index.php?controller=UserController&action=addUser" enctype="multipart/form-data">
                     	<div class="row-form">
                             <div class="span3">Username:</div>
-                            <div class="span9"><input type="text" name="name" placeholder="some text value..."/>
+                            <div class="span9"><input type="text" name="name" placeholder="some text value..."
+                                    <?php if(isset($infor)) echo "value=".$infor['name']; else echo "value=''";?>>
                             <?php
                                 if(isset($error['name'])) echo $error['name'];
                             ?>
@@ -39,7 +40,8 @@ include_once 'menu.php';
                         </div> 
                     	<div class="row-form">
                             <div class="span3">Email:</div>
-                            <div class="span9"><input type="text" name="email" placeholder="some text value..."/>
+                            <div class="span9"><input type="text" name="email" placeholder="some text value..."
+                                    <?php if(isset($infor)) echo "value=".$infor['email']; else echo "value=''"; ?>>
                             <?php
                                 if(isset($error['email'])) echo $error['email'];
                             ?>
@@ -48,7 +50,8 @@ include_once 'menu.php';
                         </div> 
                     	<div class="row-form">
                             <div class="span3">Password:</div>
-                            <div class="span9"><input type="text" name="password" placeholder="some text value..."/>
+                            <div class="span9"><input type="text" name="password" placeholder="some text value..."
+                                    <?php if(isset($infor)) echo "value=".$infor['password']; else echo "value=''";?>>
                             <?php
                                 if(isset($error['password'])) echo $error['password'];
                             ?>

@@ -35,7 +35,7 @@ include_once 'menu.php';
             <div class="span12">
                 <div class="head">
                     <div class="isw-grid"></div>
-                    <h1>Products Management</h1>
+                    <h1><?php echo $category; ?></h1>
 
                     <div class="clear"></div>
                 </div>
@@ -47,7 +47,7 @@ include_once 'menu.php';
                             <tr>
                                 <th><input type="checkbox" id="checkAll"/></th>
                                 <?php
-                                $_SESSION['page'] = $_GET['page'];
+//                                $_SESSION['page'] = $_GET['page'];
                                 if(!isset($_GET['order']) || $_GET['order']=='asc'){
                                     $order = 'desc';
                                     $class = 'sorting_desc';
@@ -58,19 +58,19 @@ include_once 'menu.php';
                                 if(!isset($_GET['search'])){
                                     $search = '';
                                 }else $search = '&search='.$_GET['search'];?>
-                                <th width='10%' class='<?php echo $class; ?>'>
-                                    <a href='index.php?controller=ProductController&action=index&sort=id<?php echo $search; ?>&order=<?php echo $order; ?>&page=1'>ID</a>
+                                <th width='15%' class='<?php echo $class; ?>'>
+                                    <a href='index.php?controller=ProductController&action=filter&sort=id<?php echo $search; ?>&order=<?php echo $order; ?>&page=1'>ID</a>
                                 </th>
-                                <th width='20%' class='<?php echo $class; ?>'>
+                                <th width='25%' class='<?php echo $class; ?>'>
                                     <a href='index.php?controller=ProductController&action=index&sort=name<?php echo $search; ?>&order=<?php echo $order; ?>&page=1'>Product Name</a>
                                 </th>
-                                <th width='20%' class='<?php echo $class; ?>'>
-                                    <a href='#'>Category Name</a>
-                                </th>
-                                <th width='10%' class='<?php echo $class; ?>'>
+<!--                                <th width='20%' class='--><?php //echo $class; ?><!--'>-->
+<!--                                    <a href='#'>Category Name</a>-->
+<!--                                </th>-->
+                                <th width='15%' class='<?php echo $class; ?>'>
                                     <a href='index.php?controller=ProductController&action=index&sort=name<?php echo $search; ?>&order=<?php echo $order; ?>&page=1'>Price</a>
                                 </th>
-                                <th width='10%' class='<?php echo $class; ?>'>
+                                <th width='15%' class='<?php echo $class; ?>'>
                                     <a href='index.php?controller=ProductController&action=index&sort=activate<?php echo $search; ?>&order=<?php echo $order; ?>&page=1'>Activate</a>
                                 </th>
                                 <th width='15%' class='<?php echo $class; ?>'>
@@ -83,16 +83,16 @@ include_once 'menu.php';
                             </tr>
                         </thead>
                         <tbody>
-                        <?php foreach($listProduct as $data){?>
+                        <?php foreach($infor as $data){?>
                             <tr>
                                 <td><input type="checkbox" name="checkbox[]" value="<?php echo $data['id']; ?>"/></td>
                                 <td><?php echo $data['id'];?></td>
                                 <td><?php echo $data['name'];?></td>
-                                <td>
-                                    <a href="index.php?controller=CategoryController&action=productPerCate&categoryId=<?php echo $data['category_id']; ?>">
-                                    <?php foreach($category as $value){if($data['category_id'] == $value['id']) echo $value['name'];} ?>
-                                    </a>
-                                </td>
+<!--                                <td>-->
+<!--                                    <a href="index.php?controller=ProductController&action=filter&categoryId=--><?php //echo $data['category_id']; ?><!--">-->
+<!--                                        --><?php //foreach($category as $value){if($data['category_id'] == $value['id']) echo $value['name'];} ?>
+<!--                                    </a>-->
+<!--                                </td>-->
                                 <td><?php echo $data['price'];?></td>
                                 <td><?php if($data['activate']) echo "<span class='text-success'>Activate</span>";
                                     else echo "<span class='text-error'>Deactivate</span>";?></td>

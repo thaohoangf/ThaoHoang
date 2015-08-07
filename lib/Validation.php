@@ -8,13 +8,15 @@
  */
 class Validation
 {
-    public $error = array();
-    public $rule = array('name' => array('required','min','max','name'),
-                        'password' => array('required','min','max','password'),
-                        'email' => array('email'),
-                        'price' => array('price'),);
+    private $error = array();
+    private $rule;
 
-//    public $checkValue = array('name','password','email');
+
+    public function __construct($rule)
+    {
+        $this->rule = $rule;
+    }
+
 
     public function checkValue()
     {
@@ -29,6 +31,7 @@ class Validation
                }
            }
        }
+//        var_dump($this->error);
         return $this->error;
     }
 
@@ -53,7 +56,7 @@ class Validation
 
     public function name($value,$key)
     {
-        $pattern = '/^[a-zA-Z0-9]+$/';
+        $pattern = '/^[a-zA-Z0-9 ]+$/';
         $message = '';
         if(!preg_match($pattern,$value)){
             $message = 'Wrong character of '.$key;
@@ -64,7 +67,7 @@ class Validation
     public function min($value,$key)
     {
         $message = '';
-        $pattern = '/^[a-zA-Z0-9]{8,}$/';
+        $pattern = '/^.{8,}$/';
         if(!preg_match($pattern,$value)){
             $message = $key . ' must be at least 8 characters';
         }
@@ -74,7 +77,7 @@ class Validation
     public function max($value,$key)
     {
         $message = '';
-        $pattern = '/^[a-zA-Z0-9]{8,32}$/';
+        $pattern = '/^.{8,32}$/';
         if(!preg_match($pattern,$value)){
             $message = $key . ' must be at most 32 characters';
         }

@@ -35,14 +35,14 @@
             <img src="upload/avatar_<?php echo $_SESSION['username']; ?>.jpg" class="img-polaroid"/>
         </div>
         <ul class="control">
-            <li><span class="icon-cog"></span> <a href="index.php?controller=UserController&action=editUser&id=<?php echo $_SESSION['id'];?>">Update Profile</a></li>
+            <li><span class="icon-cog"></span> <a href="index.php?controller=UserController&action=editUser&id=<?php echo $_SESSION['id'];?>&page=1">Update Profile</a></li>
             <li><span class="icon-share-alt"></span> <a href="index.php?controller=LogoutController&action=logout">Logout</a></li>
         </ul>
     </div>
 
     <ul class="navigation">
         <li>
-            <a href="index.php?controller=HomeController&action=index&page=1">
+            <a href="index.php?controller=CategoryController&action=index&page=1">
                 <span class="isw-grid"></span><span class="text">Categories</span>
             </a>
         </li>

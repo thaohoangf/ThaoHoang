@@ -17,7 +17,7 @@ include 'menu.php';
             <div class="span12 search">
                 <form method="GET" action="index.php">
                     <input type="hidden" class="" name="controller" value="UserController"/>
-                    <input type="hidden" class="" name="action" value="searchUser"/>
+                    <input type="hidden" class="" name="action" value="index"/>
                     <input type="hidden" class="" name="page" value="1"/>
                     <input type="hidden" name="order" value="asc">
                     <input type="text" class="span11" placeholder="Some text for search..." name="search"/>
@@ -40,10 +40,37 @@ include 'menu.php';
                     <a href="index.php?controller=UserController&action=viewAddUser" class="btn btn-add">Add User</a>
                     <table cellpadding="0" cellspacing="0" width="100%" class="table" id="tSortable_2">
                         <thead>
-                        <form method="POST" action="index.php?controller=UserController&action=handle">
+                        <form method="POST" action="index.php?controller=UserController&action=index&page=<?php echo $_GET['page']; ?>">
                         <tr>
                             <th><input type="checkbox" id="checkAll"/></th>
-                            <?php echo $thead; ?>
+                            <?php
+                            $_SESSION['page'] = $_GET['page'];
+                            if(!isset($_GET['order']) || $_GET['order']=='asc'){
+                                $order = 'desc';
+                                $class = 'sorting_desc';
+                            } else if($_GET['order']=='desc' ||$_GET['order']!=$order){
+                                $order = 'asc';
+                                $class = 'sorting_asc';
+                            }
+                            if(!isset($_GET['search'])){
+                                $search = '';
+                            }else $search = '&search='.$_GET['search'];?>
+                            <th width='15%' class='<?php echo $class; ?>'>
+                            <a href='index.php?controller=UserController&action=index&sort=id<?php echo $search; ?>&order=<?php echo $order; ?>&page=1'>ID</a>
+                        </th>
+                        <th width='30%' class='<?php echo $class; ?>'>
+                            <a href='index.php?controller=UserController&action=index&sort=name<?php echo $search; ?>&order=<?php echo $order; ?>&page=1'>Name</a>
+                        </th>
+                        <th width='25%' class='<?php echo $class; ?>'>
+                            <a href='index.php?controller=UserController&action=index&sort=activate<?php echo $search; ?>&order=<?php echo $order; ?>&page=1'>Activate</a>
+                        </th>
+                        <th width='15%' class='<?php echo $class; ?>'>
+                            <a href='index.php?controller=UserController&action=index&sort=time_create<?php echo $search; ?>&order=<?php echo $order; ?>&page=1'>Time Created</a>
+                        </th>
+                        <th width='15%' class='<?php echo $class; ?>'>
+                            <a href='index.php?controller=UserController&action=index&sort=time_update<?php echo $search; ?>&order=<?php echo $order; ?>&page=1'>Time Updated</a>
+                        </th>
+                        <th width='10%'>Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -56,7 +83,7 @@ include 'menu.php';
                                 else echo "<span class='text-error'>Deactivate</span>";?></td>
                             <td><?php echo $data['time_create'];?></td>
                             <td><?php echo $data['time_update'];?></td>
-                            <td><a href="index.php?controller=UserController&action=editUser&id=<?php echo $data['id']; ?>" class="btn btn-info">Edit</a></td>
+                            <td><a href="index.php?controller=UserController&action=editUser&id=<?php echo $data['id']; ?>&page=<?php  echo $_GET['page']; ?>" class="btn btn-info">Edit</a></td>
                         </tr>
                         <?php } ?>
                         </tbody>
@@ -81,7 +108,7 @@ include 'menu.php';
 </div>
 <script>
     var input = document.getElementsByTagName('input');
-    var selectAll = input[4];
+    var selectAll = input[5];
     selectAll.onclick = function(){
         var state = (selectAll.checked) ? true : false;
         for (var i = 2; i < input.length; i++) {
@@ -93,20 +120,3 @@ include 'menu.php';
 </body>
 </html>
 
-<!--<th><input type="checkbox" id="checkAll"/></th>-->
-<!--<th width="15%" class="--><?php //if($_GET['order']=='desc') echo "sorting_desc"; else echo 'sorting_asc';?><!--">-->
-<!--    <a href="index.php?controller=UserController&action=sort&sort=id&order=--><?php //echo $order;?><!--&page=--><?php //echo $_GET['page'];?><!--" id="sortId">ID</a>-->
-<!--</th>-->
-<!--<th width="35%" class="--><?php //if($_GET['order']=='desc') echo "sorting_desc"; else echo 'sorting_asc';?><!--">-->
-<!--    <a href="index.php?controller=UserController&action=sort&sort=name&order=--><?php //echo $order;?><!--&page=--><?php //echo $_GET['page'];?><!--">Username</a>-->
-<!--</th>-->
-<!--<th width="20%" class="--><?php //if($_GET['order']=='desc') echo "sorting_desc"; else echo 'sorting_asc';?><!--">-->
-<!--    <a href="index.php?controller=UserController&action=sort&sort=activate&order=--><?php //echo $order;?><!--&page=--><?php //echo $_GET['page'];?><!--">Activate</a>-->
-<!--</th>-->
-<!--<th width="10%" class="--><?php //if($_GET['order']=='desc') echo "sorting_desc"; else echo 'sorting_asc';?><!--">-->
-<!--    <a href="index.php?controller=UserController&action=sort&sort=time_create&order=--><?php //echo $order;?><!--&page=--><?php //echo $_GET['page'];?><!--">Time Created</a>-->
-<!--</th>-->
-<!--<th width="10%" class="--><?php //if($_GET['order']=='desc') echo "sorting_desc"; else echo 'sorting_asc';?><!--">-->
-<!--    <a href="index.php?controller=UserController&action=sort&sort=time_update&order=--><?php //echo $order;?><!--&page=--><?php //echo $_GET['page'];?><!--">Time Updated</a>-->
-<!--</th>-->
-<!--<th width="10%">Action</th>-->

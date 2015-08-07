@@ -32,22 +32,31 @@
                             ?>
                             </div>
                             <div class="clear"></div>
-                        </div> 
+                        </div>
+                        <div class="row-form">
+                            <div class="span3">Category:</div>
+                            <div class="span9">
+                                <select name="category">
+                                    <option value="0">choose a option...</option>
+                                    <?php foreach($category as $data){ ?>
+                                        <option value="<?php echo $data['id']; ?>" <?php if($infor['category_id'] == $data['id']) echo "selected"; ?>><?php echo $data['name'] ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
                     	<div class="row-form">
                             <div class="span3">Price:</div>
-                            <div class="span9"><input type="text" name="name" value="<?php echo $infor['price']; ?>"/>
+                            <div class="span9"><input type="text" name="price" value="<?php echo $infor['price']; ?>"/>
                             <?php
-                                if(isset($error['name'])) echo $error['name'];
+                                if(isset($error['price'])) echo $error['price'];
                             ?>
                             </div>
                             <div class="clear"></div>
                         </div> 
                     	<div class="row-form">
                             <div class="span3">Description:</div>
-                            <div class="span9"><input type="text" name="name" value="<?php echo $infor['description']; ?>"/>
-                            <?php
-                                if(isset($error['name'])) echo $error['name'];
-                            ?>
+                            <div class="span9"><input type="text" name="description" value="<?php echo $infor['description']; ?>"/>
                             </div>
                             <div class="clear"></div>
                         </div> 
