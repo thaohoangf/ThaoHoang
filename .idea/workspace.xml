@@ -43,42 +43,6 @@
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
     </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DbRootNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="MySQL - book@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="book" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="products" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DbRootNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="MySQL - book@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="book" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="categories" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -86,31 +50,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="list-products.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="list-products.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/View/list-products.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.076923">
-              <caret line="96" column="13" selection-start-line="96" selection-start-column="13" selection-end-line="96" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProductController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Controller/ProductController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.64612675">
-              <caret line="28" column="43" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="list-categories.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/View/list-categories.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.8076925">
-              <caret line="76" column="57" selection-start-line="76" selection-start-column="57" selection-end-line="76" selection-end-column="57" />
+            <state vertical-scroll-proportion="0.19190142">
+              <caret line="87" column="61" selection-start-line="87" selection-start-column="61" selection-end-line="87" selection-end-column="61" />
               <folding />
             </state>
           </provider>
@@ -119,19 +63,32 @@
       <file leaf-file-name="Model.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Model/Model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.269231">
-              <caret line="38" column="20" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
+            <state vertical-scroll-proportion="-2.2261906">
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding>
-                <marker date="1438938027605" expanded="true" signature="432:485" placeholder="SELECT COUNT..." />
-                <marker date="1438938027605" expanded="true" signature="682:712" placeholder="SELECT COUNT..." />
-                <marker date="1438938027605" expanded="true" signature="937:957" placeholder="SELECT ${$se..." />
-                <marker date="1438938027605" expanded="true" signature="1153:1188" placeholder="SELECT * FRO..." />
-                <marker date="1438938027605" expanded="true" signature="1398:1453" placeholder="SELECT ${$se..." />
-                <marker date="1438938027605" expanded="true" signature="1756:1800" placeholder="INSERT INTO ..." />
-                <marker date="1438938027605" expanded="true" signature="2288:2318" placeholder="DELETE FROM ..." />
-                <marker date="1438938027605" expanded="true" signature="2697:2756" placeholder="SELECT * FRO..." />
-                <marker date="1438938027605" expanded="true" signature="2944:3014" placeholder="SELECT COUNT..." />
-                <marker date="1438938027605" expanded="true" signature="3249:3342" placeholder="SELECT * FRO..." />
+                <marker date="1438948554405" expanded="true" signature="411:441" placeholder="SELECT COUNT..." />
+                <marker date="1438948554405" expanded="true" signature="666:686" placeholder="SELECT ${$se..." />
+                <marker date="1438948554405" expanded="true" signature="882:917" placeholder="SELECT * FRO..." />
+                <marker date="1438948554405" expanded="true" signature="1127:1182" placeholder="SELECT ${$se..." />
+                <marker date="1438948554405" expanded="true" signature="1485:1529" placeholder="INSERT INTO ..." />
+                <marker date="1438948554405" expanded="true" signature="1665:1695" placeholder="SELECT * FRO..." />
+                <marker date="1438948554405" expanded="true" signature="1665:1708" placeholder="SELECT COUNT..." />
+                <marker date="1438948554405" expanded="true" signature="1665:1709" placeholder="SELECT COUNT..." />
+                <marker date="1438948554405" expanded="true" signature="1665:1718" placeholder="SELECT COUNT..." />
+                <marker date="1438948554405" expanded="true" signature="1665:1719" placeholder="SELECT COUNT..." />
+                <marker date="1438948554405" expanded="true" signature="1967:1981" placeholder="SELECT * FRO..." />
+                <marker date="1438948554405" expanded="true" signature="1967:1987" placeholder="SELECT * FRO..." />
+                <marker date="1438948554405" expanded="true" signature="1967:1994" placeholder="SELECT * FRO..." />
+                <marker date="1438948554405" expanded="true" signature="1967:2004" placeholder="SELECT * FRO..." />
+                <marker date="1438948554405" expanded="true" signature="1967:2005" placeholder="SELECT * FRO..." />
+                <marker date="1438948554405" expanded="true" signature="1967:2045" placeholder="SELECT * FRO..." />
+                <marker date="1438948554405" expanded="true" signature="1967:2046" placeholder="SELECT * FRO..." />
+                <marker date="1438948554405" expanded="true" signature="1967:2054" placeholder="SELECT * FRO..." />
+                <marker date="1438948554405" expanded="true" signature="1967:2055" placeholder="SELECT * FRO..." />
+                <marker date="1438948554405" expanded="true" signature="2591:2621" placeholder="DELETE FROM ..." />
+                <marker date="1438948554405" expanded="true" signature="3000:3059" placeholder="SELECT * FRO..." />
+                <marker date="1438948554405" expanded="true" signature="3247:3317" placeholder="SELECT COUNT..." />
+                <marker date="1438948554405" expanded="true" signature="3552:3645" placeholder="SELECT * FRO..." />
               </folding>
             </state>
           </provider>
@@ -140,18 +97,18 @@
       <file leaf-file-name="BaseController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/BaseController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.26923">
-              <caret line="146" column="7" selection-start-line="134" selection-start-column="6" selection-end-line="146" selection-end-column="7" />
+            <state vertical-scroll-proportion="19.076923">
+              <caret line="93" column="43" selection-start-line="93" selection-start-column="43" selection-end-line="93" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="filter.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/View/filter.php">
+      <file leaf-file-name="ProductController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Controller/ProductController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="3.2692308">
-              <caret line="76" column="17" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="17" />
+            <state vertical-scroll-proportion="-3.8076923">
+              <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -161,10 +118,8 @@
         <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/9d07f97c-77f1-42dd-94f9-1d2afdc0dfce/console.sql">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="33" selection-start-line="0" selection-start-column="33" selection-end-line="0" selection-end-column="33" />
-              <folding>
-                <marker date="1438933169563" expanded="true" signature="0:91" placeholder="SELECT * FRO..products..." />
-              </folding>
+              <caret line="0" column="62" selection-start-line="0" selection-start-column="62" selection-end-line="0" selection-end-column="62" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -214,10 +169,10 @@
         <option value="$PROJECT_DIR$/Controller/CategoryController.php" />
         <option value="$PROJECT_DIR$/View/filter.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/9d07f97c-77f1-42dd-94f9-1d2afdc0dfce/console.sql" />
+        <option value="$PROJECT_DIR$/Controller/ProductController.php" />
         <option value="$PROJECT_DIR$/lib/BaseController.php" />
         <option value="$PROJECT_DIR$/Model/Model.php" />
         <option value="$PROJECT_DIR$/View/list-products.php" />
-        <option value="$PROJECT_DIR$/Controller/ProductController.php" />
       </list>
     </option>
   </component>
@@ -333,8 +288,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -425,10 +378,12 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Blog" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MyLaravel" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="settings.editor.splitter.proportion" value="0.22015655" />
@@ -502,8 +457,8 @@
     <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3006431" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15885022" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.0" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16111952" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -562,6 +517,14 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/9d07f97c-77f1-42dd-94f9-1d2afdc0dfce/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="33" selection-start-line="0" selection-start-column="33" selection-end-line="0" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/BaseController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -698,14 +661,14 @@
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/1cdccadb/9d07f97c-77f1-42dd-94f9-1d2afdc0dfce/book..users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -718,7 +681,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-20.538462">
           <caret line="40" column="59" selection-start-line="40" selection-start-column="59" selection-end-line="40" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -793,19 +755,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-14.0">
           <caret line="47" column="45" selection-start-line="47" selection-start-column="45" selection-end-line="47" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/1cdccadb/9d07f97c-77f1-42dd-94f9-1d2afdc0dfce/book..categories">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -821,7 +782,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-19.615385">
           <caret line="42" column="46" selection-start-line="42" selection-start-column="46" selection-end-line="42" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -829,7 +789,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -837,7 +796,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.6153846">
           <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -845,7 +803,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.089788735">
           <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -858,15 +815,14 @@
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/1cdccadb/9d07f97c-77f1-42dd-94f9-1d2afdc0dfce/book..products">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -894,71 +850,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/9d07f97c-77f1-42dd-94f9-1d2afdc0dfce/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="33" selection-start-line="0" selection-start-column="33" selection-end-line="0" selection-end-column="33" />
-          <folding>
-            <marker date="1438933169563" expanded="true" signature="0:91" placeholder="SELECT * FRO..products..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/filter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.2692308">
-          <caret line="76" column="17" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/View/list-categories.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.8076925">
+        <state vertical-scroll-proportion="0.40140846">
           <caret line="76" column="57" selection-start-line="76" selection-start-column="57" selection-end-line="76" selection-end-column="57" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/BaseController.php">
+    <entry file="file://$PROJECT_DIR$/View/filter.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.26923">
-          <caret line="146" column="7" selection-start-line="134" selection-start-column="6" selection-end-line="146" selection-end-column="7" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="76" column="17" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Model/Model.php">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/9d07f97c-77f1-42dd-94f9-1d2afdc0dfce/console.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.269231">
-          <caret line="38" column="20" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
-          <folding>
-            <marker date="1438938027605" expanded="true" signature="432:485" placeholder="SELECT COUNT..." />
-            <marker date="1438938027605" expanded="true" signature="682:712" placeholder="SELECT COUNT..." />
-            <marker date="1438938027605" expanded="true" signature="937:957" placeholder="SELECT ${$se..." />
-            <marker date="1438938027605" expanded="true" signature="1153:1188" placeholder="SELECT * FRO..." />
-            <marker date="1438938027605" expanded="true" signature="1398:1453" placeholder="SELECT ${$se..." />
-            <marker date="1438938027605" expanded="true" signature="1756:1800" placeholder="INSERT INTO ..." />
-            <marker date="1438938027605" expanded="true" signature="2288:2318" placeholder="DELETE FROM ..." />
-            <marker date="1438938027605" expanded="true" signature="2697:2756" placeholder="SELECT * FRO..." />
-            <marker date="1438938027605" expanded="true" signature="2944:3014" placeholder="SELECT COUNT..." />
-            <marker date="1438938027605" expanded="true" signature="3249:3342" placeholder="SELECT * FRO..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/list-products.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.076923">
-          <caret line="96" column="13" selection-start-line="96" selection-start-column="13" selection-end-line="96" selection-end-column="13" />
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="62" selection-start-line="0" selection-start-column="62" selection-end-line="0" selection-end-column="62" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Controller/ProductController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.64612675">
-          <caret line="28" column="43" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
+        <state vertical-scroll-proportion="-3.8076923">
+          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/Model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.2261906">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding>
+            <marker date="1438948554405" expanded="true" signature="411:441" placeholder="SELECT COUNT..." />
+            <marker date="1438948554405" expanded="true" signature="666:686" placeholder="SELECT ${$se..." />
+            <marker date="1438948554405" expanded="true" signature="882:917" placeholder="SELECT * FRO..." />
+            <marker date="1438948554405" expanded="true" signature="1127:1182" placeholder="SELECT ${$se..." />
+            <marker date="1438948554405" expanded="true" signature="1485:1529" placeholder="INSERT INTO ..." />
+            <marker date="1438948554405" expanded="true" signature="1665:1695" placeholder="SELECT * FRO..." />
+            <marker date="1438948554405" expanded="true" signature="1665:1708" placeholder="SELECT COUNT..." />
+            <marker date="1438948554405" expanded="true" signature="1665:1709" placeholder="SELECT COUNT..." />
+            <marker date="1438948554405" expanded="true" signature="1665:1718" placeholder="SELECT COUNT..." />
+            <marker date="1438948554405" expanded="true" signature="1665:1719" placeholder="SELECT COUNT..." />
+            <marker date="1438948554405" expanded="true" signature="1967:1981" placeholder="SELECT * FRO..." />
+            <marker date="1438948554405" expanded="true" signature="1967:1987" placeholder="SELECT * FRO..." />
+            <marker date="1438948554405" expanded="true" signature="1967:1994" placeholder="SELECT * FRO..." />
+            <marker date="1438948554405" expanded="true" signature="1967:2004" placeholder="SELECT * FRO..." />
+            <marker date="1438948554405" expanded="true" signature="1967:2005" placeholder="SELECT * FRO..." />
+            <marker date="1438948554405" expanded="true" signature="1967:2045" placeholder="SELECT * FRO..." />
+            <marker date="1438948554405" expanded="true" signature="1967:2046" placeholder="SELECT * FRO..." />
+            <marker date="1438948554405" expanded="true" signature="1967:2054" placeholder="SELECT * FRO..." />
+            <marker date="1438948554405" expanded="true" signature="1967:2055" placeholder="SELECT * FRO..." />
+            <marker date="1438948554405" expanded="true" signature="2591:2621" placeholder="DELETE FROM ..." />
+            <marker date="1438948554405" expanded="true" signature="3000:3059" placeholder="SELECT * FRO..." />
+            <marker date="1438948554405" expanded="true" signature="3247:3317" placeholder="SELECT COUNT..." />
+            <marker date="1438948554405" expanded="true" signature="3552:3645" placeholder="SELECT * FRO..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/BaseController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="19.076923">
+          <caret line="93" column="43" selection-start-line="93" selection-start-column="43" selection-end-line="93" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/list-products.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19190142">
+          <caret line="87" column="61" selection-start-line="87" selection-start-column="61" selection-end-line="87" selection-end-column="61" />
           <folding />
         </state>
       </provider>

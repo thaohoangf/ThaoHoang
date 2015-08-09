@@ -57,7 +57,9 @@ include_once 'menu.php';
                                 }
                                 if(!isset($_GET['search'])){
                                     $search = '';
-                                }else $search = '&search='.$_GET['search'];?>
+                                }else $search = '&search='.$_GET['search'];
+
+                                ?>
                                 <th width='10%' class='<?php echo $class; ?>'>
                                     <a href='index.php?controller=ProductController&action=index&sort=id<?php echo $search; ?>&order=<?php echo $order; ?>&page=1'>ID</a>
                                 </th>
@@ -89,7 +91,7 @@ include_once 'menu.php';
                                 <td><?php echo $data['id'];?></td>
                                 <td><?php echo $data['name'];?></td>
                                 <td>
-                                    <a href="index.php?controller=CategoryController&action=productPerCate&categoryId=<?php echo $data['category_id']; ?>">
+                                    <a href="index.php?controller=ProductController&action=index&categoryId=<?php echo $data['category_id']; ?>&sort=id&order=asc&page=1">
                                     <?php foreach($category as $value){if($data['category_id'] == $value['id']) echo $value['name'];} ?>
                                     </a>
                                 </td>

@@ -11,6 +11,7 @@ class ProductController extends BaseController
     public function index()
     {
         $model = new Model();
+        $href = '';
         $category = $model->getAll('categories','*');
         if (isset($_GET['search'])) {
             $search = $_GET['search'];
@@ -23,14 +24,20 @@ class ProductController extends BaseController
                 $productInfor = $this->searchLimit($this->table, $this->model, 'name', $href, $order, $condition);
             }
         } elseif (isset($_GET['sort'])) {
+
             $condition = $_GET['sort'];
             $order = $_GET['order'];
-            $category_id = $_GET['categoryId'];
             if(isset($_GET['categoryId'])){
+                $category_id = $_GET['categoryId'];
                 $href = "index.php?controller=ProductController&action=index&sort=$condition&order=$order&categoryId=$category_id&page=";
+                $productInfor = $this->sortFilterLimit($this->model,$this->table,$condition,$order,$href,$category_id,'category_id');
+//                echo $href;
+//                var_dump($productInfor);
             }
-            $href = "index.php?controller=ProductController&action=index&sort=$condition&order=$order&page=";
-            $productInfor = $this->sortLimit($this->model, $this->table, $condition, $order, $href);
+            else {
+                $href = "index.php?controller=ProductController&action=index&sort=$condition&order=$order&page=";
+                $productInfor = $this->sortLimit($this->model, $this->table, $condition, $order, $href);
+            }
         }elseif(isset($_POST['delete']) || isset($_POST['activate'])){
             $this->handle();
         }

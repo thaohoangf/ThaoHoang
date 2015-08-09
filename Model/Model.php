@@ -19,14 +19,6 @@ class Model extends Database
         return $list;
     }
 
-    public function countFilter($table,$column,$condition)
-    {
-        $sql = "SELECT COUNT(*) as count FROM $table WHERE $column = $condition";
-        $result = $this->cont->query($sql);
-        $count = $result->fetch_assoc();
-        return $count['count'];
-    }
-
 
     public function countAll($table)
     {
@@ -66,6 +58,21 @@ class Model extends Database
         $values = "'$values'";
         $sql = "INSERT INTO $table($column) VALUES ($values)";
         $result = $this->cont->query($sql);
+    }
+
+    public function countAllFilter($table, $column, $value)
+    {
+        $sql = "SELECT COUNT(*) as count FROM $table WHERE $column = $value";
+        $result = $this->cont->query($sql);
+        $count = $result->fetch_assoc();
+        return $count['count'];
+    }
+
+    public function sortByFilter($table, $condition, $order, $offset, $step, $value, $column)
+    {
+        $sql = "SELECT * FROM $table WHERE $column = $value  ORDER BY $condition $order  LIMIT $offset,$step";
+        $result = $this->cont->query($sql);
+        return $this->fetchResult($result);
     }
 
     //update database

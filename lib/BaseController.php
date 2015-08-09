@@ -132,6 +132,25 @@ class BaseController{
         return $data;
     }
 
+
+    public function sortFilterLimit($model, $table, $condition, $order, $href, $value,$column)
+    {
+        //$column = 'category_id
+        //$condition = ''
+//        echo $table;
+//        var_dump($value);
+//        var_dump($condition);
+        $data = array();
+        $model = new $model;
+        $currentPage = $_GET['page'];
+        $totalRecord = $model->countAllFilter($table,$column,$value);
+        $pagination = new Pagination($totalRecord,PER_PAGE,$currentPage,$href);
+        $link = $pagination->paginationPanel($href);
+        $offset = $pagination->getOffset();
+        $data['infor'] = $model->sortByFilter($table,$condition,$order,$offset,PER_PAGE,$value,'category_id');
+        $data['link'] = $link;
+        return $data;
+    }
 //    public function sortFilterLimit($model, $table, $condition, $order, $href, $value)
 //    {
 //        $data = array();
